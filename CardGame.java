@@ -107,11 +107,11 @@ public class CardGame {
 			playerCards.add(deckOfCards.remove(0));
 		}
 		// printing the score
-		System.out.println("Players cards:");
+		System.out.println("Your cards:");
 		for(Card c: playerCards)
 			System.out.println(c);
 		calculateScore();
-		System.out.println("Current Score:" + playerScore);
+		System.out.println("\nFinal Score: " + playerScore);
 
 	}//end main
 
@@ -130,7 +130,7 @@ public class CardGame {
 	public static boolean checkFor2Kind() {
 		for(int i = 0; i < playerCards.size() - 1; i++) {
 			Card current = playerCards.get(i);
-			
+
 			for(int j = i+1; j < playerCards.size(); j++) {
 				Card next = playerCards.get(j);
 				if(current.getValue() == next.getValue()) {
@@ -145,19 +145,27 @@ public class CardGame {
 	public static void calculateScore() {
 		// Reset score before calculating
 		playerScore = 0;
-		
+		boolean pairFound = false;
+
 		// Award points for pairs
 		if(checkFor2Kind()) {
 			playerScore += 2;
-			System.out.println("You got a pair! +2 points");
+			pairFound = true;
+		} else {
+			System.out.println("No pairs found.");
 		}
-		
+
 		// Award points for high cards
 		for(Card card : playerCards) {
-			if(card.getValue() > 10) {
+			int value = card.getValue();
+			if (value >= 11) { //Correctly handle Jack, Queen, King
 				playerScore += 1;
 				System.out.println("High card " + card.getName() + "! +1 point");
 			}
+		}
+
+		if (!pairFound && playerScore == 0) {
+			System.out.println("No points awarded.");
 		}
 	}
 }//end class
