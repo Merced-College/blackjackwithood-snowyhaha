@@ -5,6 +5,72 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// The class I created for the card game
+class Card {
+	// declares the variables for this class
+		private String suit;
+		private String name;
+		private int value;
+		private String picture;
+		// creates the constructor for the class
+		public Card(String suit, String name, int value, String picture) {
+				this.suit = suit;
+				this.name = name;
+				this.value = value;
+				this.picture = picture;
+		}
+ 		// creates the getters for the class
+		public String getSuit() {
+				return suit;
+		}
+		// creates the setters for the class 
+		public void setSuit(String suit) {
+				this.suit = suit;
+		}
+		// creates the getters for the class
+		public String getName() {
+				return name;
+		}
+		// creates the setters for the class
+		public void setName(String name) {
+				this.name = name;
+		}
+		// creates the getters for the class
+		public int getValue() {
+				return value;
+		}
+		// creates the setters for the class
+		public void setValue(int value) {
+				this.value = value;
+		}
+		// creates the getters for the class
+		public String getPicture() {
+				return picture;
+		}
+		// creates the setters for the class
+		public void setPicture(String picture) {
+				this.picture = picture;
+		}
+		// creates the toString method for the class
+		@Override
+		public String toString() {
+				return "Card{" +
+								"suit='" + suit + '\'' +
+								", name='" + name + '\'' +
+								", value=" + value +
+								", picture='" + picture + '\'' +
+								'}';
+		}
+		// creates the equals method for the class
+		@Override
+		public boolean equals(Object obj) {
+				if (this == obj) return true;
+				if (obj == null || getClass() != obj.getClass()) return false;
+				Card card = (Card) obj;
+				return value == card.value;
+		}
+}
+
 public class CardGame {
 
 	private static ArrayList<Card> deckOfCards = new ArrayList<Card>();
