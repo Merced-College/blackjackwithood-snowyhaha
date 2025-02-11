@@ -142,17 +142,21 @@ public class CardGame {
 	}
 		// calcuate the score
 		public static void calculateScore(){
+			// Reset score before calculating
+			playerScore = 0;
+			
 			// award points for 2 of a kind
 			if(checkFor2Kind()){
 				playerScore += 2;
 				System.out.println("You got 2 of a kind! +2 points");
 			}
+			
 			// award points for higher cards
 			for(Card card: playerCards){
 				if(card.getValue() > 10){
 					playerScore += 1;
-					System.out.println("You got a higher card!" + card.getName() + "+1 point");
+					System.out.println("You got a higher card: " + card.getName() + " (+1 point)");
 				}
-				}
+			}
 		}
 }//end class
