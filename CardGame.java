@@ -103,8 +103,8 @@ public class CardGame {
 			//System.out.println(c);
 
 		//deal the player 5 cards
-		for(int i = 0; i < 4; i++) {
-			playerCards.add(deckOfCards.remove(i));
+		for(int i = 0; i < 5; i++) {
+			playerCards.add(deckOfCards.remove(0));
 		}
 		// printing the score
 		System.out.println("Players cards:");
