@@ -128,23 +128,16 @@ public class CardGame {
 
 	//check for 2 of a kind in the players hand
 	public static boolean checkFor2Kind() {
-
-		int count = 0;
 		for(int i = 0; i < playerCards.size() - 1; i++) {
 			Card current = playerCards.get(i);
-			Card next = playerCards.get(i+1);
-			
-			for(int j = i+1; j < playerCards.size(); j++) {
-				next = playerCards.get(j);
-				//System.out.println(" comparing " + current);
-				//System.out.println(" to " + next);
-				if(current.equals(next))
-					count++;
-			}//end of inner for
-			if(count == 1)
-				return true;
 
-		}//end outer for
+			for(int j = i+1; j < playerCards.size(); j++) {
+				Card next = playerCards.get(j);
+				if(current.getValue() == next.getValue()) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 		// calcuate the score
@@ -163,4 +156,3 @@ public class CardGame {
 				}
 		}
 }//end class
-
