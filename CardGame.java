@@ -146,7 +146,7 @@ public class CardGame {
 
 		}//end outer for
 		return false;
-
+	}
 		// calcuate the score
 		public static void calculateScore(){
 			// award points for 2 of a kind
