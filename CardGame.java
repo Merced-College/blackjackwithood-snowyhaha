@@ -111,7 +111,7 @@ public class CardGame {
 		for(Card c: playerCards)
 			System.out.println(c);
 		calculateScore();
-		System.out.println("Final Score: " + playerScore);
+		System.out.println("\nFinal Score: " + playerScore);
 
 	}//end main
 
