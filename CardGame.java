@@ -72,10 +72,11 @@ class Card {
 }
 
 public class CardGame {
-
+	// feature I added: score tracking
 	private static ArrayList<Card> deckOfCards = new ArrayList<Card>();
 	private static ArrayList<Card> playerCards = new ArrayList<Card>();
-
+	// keep track of the player score
+	private static int playerScore = 0;
 
 	public static void main(String[] args) {
 
@@ -105,12 +106,12 @@ public class CardGame {
 		for(int i = 0; i < 4; i++) {
 			playerCards.add(deckOfCards.remove(i));
 		}
-		
-		System.out.println("players cards");
+		// printing the score
+		System.out.println("Players cards:");
 		for(Card c: playerCards)
 			System.out.println(c);
-
-		System.out.println("pairs is " + checkFor2Kind());
+		calculateScore();
+		System.out.println("Current Score:" + playerScore);
 
 	}//end main
 
@@ -145,6 +146,21 @@ public class CardGame {
 
 		}//end outer for
 		return false;
-	}
+
+		// calcuate the score
+		public static void calculateScore(){
+			// award points for 2 of a kind
+			if(checkFor2Kind()){
+				playerScore += 2;
+				System.out.println("You got 2 of a kind! +2 points");
+			}
+			// award points for higher cards
+			for(Card card: playerCards){
+				if(card.getValue() > 10){
+					playerScore += 1;
+					System.out.println("You got a higher card!" + card.getName() + "+1 point");
+				}
+				}
+		}
 }//end class
 
