@@ -145,27 +145,26 @@ public class CardGame {
 	public static void calculateScore() {
 		// Reset score before calculating
 		playerScore = 0;
-		boolean pairFound = false;
 
 		// Award points for pairs
 		if(checkFor2Kind()) {
 			playerScore += 2;
-			pairFound = true;
-		} else {
-			System.out.println("No pairs found.");
+			System.out.println("Found a pair! +2 points");
 		}
 
-		// Award points for high cards
+		// Award points for high cards (including Ace)
 		for(Card card : playerCards) {
 			int value = card.getValue();
-			if (value >= 11) { //Correctly handle Jack, Queen, King
+			if (value >= 10) { // Include 10s and face cards
 				playerScore += 1;
-				System.out.println("High card " + card.getName() + "! +1 point");
+				System.out.println("High card: " + card.getName() + " (+1 point)");
 			}
 		}
 
-		if (!pairFound && playerScore == 0) {
-			System.out.println("No points awarded.");
+		if (playerScore == 0) {
+			System.out.println("No points scored this hand.");
+		} else {
+			System.out.println("Total score: " + playerScore);
 		}
 	}
 }//end class
