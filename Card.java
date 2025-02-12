@@ -25,7 +25,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{suit='" + suit + "', name='" + name + "', value=" + value + ", picture='" + picture + "'}";
+        return name + " of " + suit + "s";
     }
 
     @Override
