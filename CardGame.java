@@ -1,3 +1,6 @@
+// Reem Amro 
+
+
 package cardGame;
 
 import java.io.File;
@@ -111,7 +114,7 @@ public class CardGame {
 		for(Card c: playerCards)
 			System.out.println(c);
 		calculateScore();
-		System.out.println("\nFinal Score: " + playerScore);
+		System.out.println("Final Score: " + playerScore);
 
 	}//end main
 
