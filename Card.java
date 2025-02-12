@@ -1,3 +1,6 @@
+
+package cardGame;
+
 public class Card {
     private String suit;
     private String name;
